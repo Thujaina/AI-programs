@@ -1,0 +1,27 @@
+# Writing numbers to a file
+f = open('numbers.txt', 'w')
+f.write("5\n")
+f.write("10\n")
+f.close()  # Close the file after writing
+
+# Reading the numbers from the file and performing calculations
+f = open('numbers.txt', 'r')
+# Reading numbers from the file
+numbers = f.readlines()
+f.close()  # Close the file after reading
+
+# Convert the strings to integers
+num1 = int(numbers[0])
+num2 = int(numbers[1])
+
+# Perform simple calculations
+addition = num1 + num2
+multiplication = num1 * num2
+
+# Display the results
+print(f"Addition: {num1} + {num2} = {addition}")
+print(f"Multiplication: {num1} * {num2} = {multiplication}")
+
+# example output
+Addition: 5 + 10 = 15
+Multiplication: 5 * 10 = 50
