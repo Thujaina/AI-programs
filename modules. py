@@ -1,0 +1,34 @@
+# Importing the math and datetime modules
+import math
+import datetime
+
+# Using math module functions
+number = 25
+square_root = math.sqrt(number)
+print(f"The square root of {number} is {square_root}")
+
+# Calculate the area of a circle with radius 7 using math.pi
+radius = 7
+circle_area = math.pi * radius**2
+print(f"The area of a circle with radius {radius} is {circle_area}")
+
+# Using datetime module to get the current date and time
+current_datetime = datetime.datetime.now()
+print(f"Current date and time: {current_datetime}")
+
+# Using datetime to format the date
+formatted_date = current_datetime.strftime("%Y-%m-%d")
+print(f"Formatted date: {formatted_date}")
+
+# Using math and datetime together: Calculate how many days until New Year
+new_year = datetime.datetime(current_datetime.year + 1, 1, 1)
+days_until_new_year = (new_year - current_datetime).days
+print(f"Days until New Year: {days_until_new_year}")
+
+
+#OUTPUT
+The square root of 25 is 5.0
+The area of a circle with radius 7 is 153.93804002589985
+Current date and time: 2024-10-22 12:45:30.123456
+Formatted date: 2024-10-22
+Days until New Year: 71
