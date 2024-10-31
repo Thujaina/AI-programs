@@ -15,7 +15,6 @@ print("Shape of the array:", array.shape)
 # Display length of the array (number of rows in this case)
 print("Length of the array (len):", len(array))
 
-
 #Output
 
 Array:
