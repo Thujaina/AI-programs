@@ -1,0 +1,44 @@
+#shell script to check if the given input is a directory and display its contents in linux command.
+
+#!/bin/bash
+
+# Check if the user provided an argument
+if [ $# -eq 0 ]; then
+    echo "Please provide a directory path"
+    exit 1
+fi
+
+# Check if the provided path is a directory
+if [ -d "$1" ]; then
+    echo "Contents of $1:"
+    ls -l "$1"
+else
+    echo "$1 is not a directory"
+fi
+
+
+# shell script to check if the given inputs are files and copy the contents of one file to another file.
+
+#!/bin/bash
+
+# Prompt the user to enter the source file
+read -p "Enter the source file path: " src
+
+# Check if the source file exists and is a file
+if [ ! -f "$src" ]; then
+    echo "Error: '$src' is not a valid file."
+    exit 1
+fi
+
+# Prompt the user to enter the destination file
+read -p "Enter the destination file path: " dest
+
+# Check if the destination file exists
+if [ ! -f "$dest" ]; then
+    echo "Warning: '$dest' does not exist. It will be created."
+fi
+
+# Copy contents from source to destination
+cp "$src" "$dest"
+
+echo "Contents of '$src' have been copied to '$dest'."
