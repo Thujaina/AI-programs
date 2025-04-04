@@ -42,3 +42,78 @@ fi
 cp "$src" "$dest"
 
 echo "Contents of '$src' have been copied to '$dest'."
+
+
+#Shell Script to Execute Basic Commands Using case Construct
+
+#!/bin/bash
+
+# Display menu options
+echo "Select an option:"
+echo "1. Display current date and time"
+echo "2. List files in the current directory"
+echo "3. Show current working directory"
+echo "4. Check system uptime"
+echo "5. Exit"
+
+# Read user choice
+read -p "Enter your choice (1-5): " choice
+
+# Use case construct to handle different options
+case $choice in
+    1)
+        echo "Current Date and Time: $(date)"
+        ;;
+    2)
+        echo "Files in the current directory:"
+        ls
+        ;;
+    3)
+        echo "Current Working Directory: $(pwd)"
+        ;;
+    4)
+        echo "System Uptime: $(uptime)"
+        ;;
+    5)
+        echo "Exiting the script."
+        exit 0
+        ;;
+    *)
+        echo "Invalid choice! Please enter a number between 1 and 5."
+        ;;
+esac
+
+
+
+#Shell Script to Find the Largest File from a Given List
+
+#!/bin/bash
+
+# Check if at least one file is provided
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 file1 file2 file3 ..."
+    exit 1
+fi
+
+max_size=0
+largest_file=""
+
+# Iterate through all provided files
+for file in "$@"; do
+    if [ -f "$file" ]; then
+        size=$(stat -c%s "$file")  # Get file size in bytes
+        if [ $size -gt $max_size ]; then
+            max_size=$size
+            largest_file=$file
+        fi
+    else
+        echo "Warning: '$file' is not a valid file, skipping..."
+    fi
+done
+
+# Display the largest file
+if [ -n "$largest_file" ]; then
+    echo "The largest file is: $largest_file ($max_size bytes)"
+else
+    echo "No valid files were provided."
+fi
