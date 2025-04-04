@@ -1,4 +1,4 @@
-#shell script to check if the given input is a directory and display its contents in linux command.
+#1. shell script to check if the given input is a directory and display its contents in linux command.
 
 #!/bin/bash
 
@@ -17,7 +17,7 @@ else
 fi
 
 
-# shell script to check if the given inputs are files and copy the contents of one file to another file.
+#2. shell script to check if the given inputs are files and copy the contents of one file to another file.
 
 #!/bin/bash
 
@@ -38,7 +38,7 @@ if [ ! -f "$dest" ]; then
     echo "Warning: '$dest' does not exist. It will be created."
 fi
 
-# Copy contents from source to destination
+#3. Copy contents from source to destination
 cp "$src" "$dest"
 
 echo "Contents of '$src' have been copied to '$dest'."
@@ -85,7 +85,7 @@ esac
 
 
 
-#Shell Script to Find the Largest File from a Given List
+#4. Shell Script to Find the Largest File from a Given List
 
 #!/bin/bash
 
