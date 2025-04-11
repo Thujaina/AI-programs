@@ -1,0 +1,120 @@
+Shell Script: Rename Files and Directories
+
+#!/bin/bash
+
+# Loop through all items in the current directory
+for item in *; do
+    # Check if it's a regular file
+    if [ -f "$item" ]; then
+        # Get lowercase version of filename
+        new_name=$(echo "$item" | tr 'A-Z' 'a-z')
+        # Rename only if the name changes
+        if [ "$item" != "$new_name" ]; then
+            mv "$item" "$new_name"
+        fi
+
+    # Check if it's a directory
+    elif [ -d "$item" ]; then
+        # Get uppercase version of directory name
+        new_name=$(echo "$item" | tr 'a-z' 'A-Z')
+        # Rename only if the name changes
+        if [ "$item" != "$new_name" ]; then
+            mv "$item" "$new_name"
+        fi
+    fi
+done
+
+
+Shell Script: Display Longest and Shortest Usernames
+
+#!/bin/bash
+
+# Extract usernames from /etc/passwd
+usernames=$(cut -d: -f1 /etc/passwd)
+
+# Initialize variables
+shortest=""
+longest=""
+
+# Loop through each username
+for user in $usernames; do
+    if [ -z "$shortest" ] || [ ${#user} -lt ${#shortest} ]; then
+        shortest="$user"
+    fi
+    if [ -z "$longest" ] || [ ${#user} -gt ${#longest} ]; then
+        longest="$user"
+    fi
+done
+
+# Output the results
+echo "Shortest username: $shortest"
+echo "Longest username: $longest"
+
+
+Shell Script: System Information Report
+
+#!/bin/bash
+
+echo "---------------------------------------------"
+echo "i) Currently logged-in users:"
+who
+echo "---------------------------------------------"
+
+echo "ii) Your shell directory:"
+echo "$SHELL"
+echo "---------------------------------------------"
+
+echo "iii) Home directory:"
+echo "$HOME"
+echo "---------------------------------------------"
+
+echo "iv) OS name & version:"
+uname -o
+cat /etc/os-release | grep '^PRETTY_NAME' | cut -d= -f2 | tr -d \"
+echo "---------------------------------------------"
+
+echo "v) Current working directory:"
+pwd
+echo "---------------------------------------------"
+
+echo "vi) Number of users currently logged in:"
+who | wc -l
+echo "---------------------------------------------"
+
+echo "vii) All available shells in your system:"
+cat /etc/shells
+echo "---------------------------------------------"
+
+echo "viii) Hard disk information:"
+lsblk
+echo "---------------------------------------------"
+
+echo "ix) CPU information:"
+lscpu
+echo "---------------------------------------------"
+
+echo "x) Memory information:"
+free -h
+echo "---------------------------------------------"
+
+echo "xi) File system information:"
+df -h
+echo "---------------------------------------------"
+
+echo "xii) Currently running processes:"
+ps -e
+echo "---------------------------------------------"
+
+
+
+Shell Script: Length of Each String in an Array
+
+#!/bin/bash
+
+# Declare an array of strings
+strings=("hello" "world" "Linux" "shell" "scripting" "AI")
+
+# Loop through the array and print length of each string
+for str in "${strings[@]}"; do
+    echo "String: $str | Length: ${#str}"
+done
