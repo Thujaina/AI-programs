@@ -1,4 +1,4 @@
-#1. shell script to check if the given input is a directory and display its contents in linux command.
+# 1. shell script to check if the given input is a directory and display its contents in linux command.
 
 #!/bin/bash
 
