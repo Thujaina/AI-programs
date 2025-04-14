@@ -17,7 +17,7 @@ else
 fi
 
 
-#2. shell script to check if the given inputs are files and copy the contents of one file to another file.
+# 2. shell script to check if the given inputs are files and copy the contents of one file to another file.
 
 #!/bin/bash
 
